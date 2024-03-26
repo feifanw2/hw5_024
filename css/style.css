@@ -1,0 +1,164 @@
+/* 1. keyframes*/
+@keyframes mymove {
+0% {
+    width:25px;
+    opacity: 0;
+}
+100% {
+    width:475px;
+    opacity: 1;
+}
+}
+
+#logo {
+    animation: mymove 5s ease forwards;
+}
+
+/* 2.edit body to use the Poppins font*/
+body{
+    font-family: "Poppins", "serif";
+    font-weight: 400;
+    font-style: normal;
+    background-image:url('../images/concrete_seamless.png');
+    background-repeat: repeat;
+    background-color: #f1f1f1;
+  }
+
+/* 3. header tag flex*/
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* 4. nav_links flex*/
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+/* 5. visited link */
+.nav_links li.nav_item a:link { 
+    color:blue;
+}
+.nav_links li.nav_item a:visited { 
+    color:blue;
+}
+
+/*6. tyle ONLY those header elements that are direct children of a card class*/
+.card > header {
+    background-color:#288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0;
+    border-radius: 50px 50px 0 0;
+}
+.card{
+    border-radius: 50px 50px 0 0;
+}
+
+/* 7. Edit the css for the card class to match our example*/
+.card {
+    width: 450px;
+}
+/* 8. Edit the css for the pricing class to match our example*/
+.pricing{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*9. & 10.images in gallery*/
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin:10px;
+    width:300px;
+}
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    justify-content: center;
+}
+
+/* for screen-size greater than 900px*/
+/*11.header tag flex & nav_links flex*/
+@media screen and (min-width:900px) {
+header {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.nav_links {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+/*12. Edit the css for the pricing and card classes
+275px doesn't look like the example, might be too wide, so changed to 225px here.*/
+.card {
+    flex-basis: 225px;
+}
+.pricing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*13. first header visible at the top of the screen even as we scroll down*/
+body > header{
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+}
+}
+
+/*14. reduced motion*/
+@media (prefers-reduced-motion: reduce) {
+    #logo {
+      animation: none; 
+    }
+}
+
+/*for when the page is printed in portrait mode*/
+/* 15. Change the font on your body to Arial with a backup value of  Helvetica*/
+@media print and (orientation: portrait) {
+    body {
+        font-family: “Arial”, “Helvetica”;
+        /*16.The background image should be removed*/
+        background-image: none; 
+      }
+/*17. Edit the nav/nav_links elements so that they are spaced according to the image above.*/
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nav_links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/*18. pricing, align along the bottom*/
+.pricing{
+    display:flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+/*19.The card elements should have a solid border 2px of #45ADDD and use flex-basis of 325px.*/
+
+.card {
+    flex-basis: 325px;
+    border: 2px solid #45ADDD;
+}
+/*20. No part of the gallery should be visible */
+.gallery, #gallery {
+    display: none;
+}
+/*20. No part of the gallery should be visible */
+.card ul li:nth-child(2)::after {
+    content: "👍";
+}
+
+}
